@@ -33,10 +33,11 @@ window.onload = function () {
   }
 };
 
-function isDesktop() {
-  
-}
+function isDesktop() {}
 
 function isMobile() {
-  
+  let desktop = document.querySelectorAll(".desktop");
+  desktop.forEach((element) => {
+    element.style.display = "none";
+  });
 }
