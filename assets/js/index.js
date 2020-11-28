@@ -1,7 +1,3 @@
-const home = document.querySelector(".homepage");
-const login = document.querySelector(".login");
-const userDash = document.querySelector(".find-your-doctor");
-
 //On load check if mobile
 window.onload = function () {
   let ckMobile = {
@@ -39,7 +35,12 @@ window.onload = function () {
 };
 
 function isDesktop() {
-  //empty: all contents in html static
+  //Remove all mobile elements
+  let allMobile = document.querySelectorAll("section");
+  allMobile.forEach((mobile) => {
+    mobile.style.display = "none";
+  });
+  console.log("You're in desktop");
 }
 
 function isMobile() {
@@ -51,6 +52,11 @@ function isMobile() {
   getStarted();
 }
 
+//Define all the sections
+const home = document.querySelector(".homepage");
+const login = document.querySelector(".login");
+const userDash = document.querySelector(".find-your-doctor");
+
 function getStarted() {
   //Get Started Button
   let startBtn = document.querySelector(".homepage__btn");
@@ -58,6 +64,7 @@ function getStarted() {
     changePageAnimation(home, login, "next");
   });
 
+  //GoBack Button in login section
   let goback = document.querySelector(".login__go-back");
   goback.addEventListener("click", (event) => {
     changePageAnimation(login, home, "prew");
@@ -101,6 +108,7 @@ function changePageAnimation(currentPage, finalPage, where) {
   }
 }
 
+//form validation
 function loginValidate(event) {
   let form = document.querySelector(".login__form");
   let log = false;
@@ -140,6 +148,7 @@ function loginValidate(event) {
   if (log == true) form.addEventListener("submit", logged(name));
 }
 
+//user logged in
 function logged(name) {
   changePageAnimation(login, userDash, "next");
 }
