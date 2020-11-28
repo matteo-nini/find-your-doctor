@@ -52,6 +52,7 @@
     <title>Find Your Doctor!</title>
   </head>
   <body>
+    <!-- DESKTOP VERSION-->
     <div class="desktop background__animated">
       <span></span>
       <span></span>
@@ -74,9 +75,9 @@
       </div>
     </div>
     <div class="desktop background__bottom__line"></div>
-    </div>
-    
+    <!--END DESKTOP VERSION-->
 
+    <!--MOBILE START-->
     <section class="homepage">
       <h1 class="homepage__title">Choose The Doctor You Want</h1>
       <p class="homepage__description">
@@ -84,6 +85,34 @@
       </p>
       <button class="homepage__btn">Get Started</button>
     </section>
+
+    <!--login-->
+    <section class="login">
+      <button class="login__go-back">
+        <img src="assets/images/icons/go_back_ico.svg" alt="go-back" />
+      </button>
+      <h1>Login to your Account!</h1>
+      <form class="login__form" onsubmit="loginValidate(event)">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="Your Name" />
+        <span class="login__form__validate">Required</span>
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Your Password"
+        />
+        <span class="login__form__validate">Required</span>
+        <button type="submit">Sign In</button>
+        <p>
+          Don’t have an account? <br /><a href="#"><span>Sign up here</span></a>
+        </p>
+      </form>
+    </section>
+
+    <!--Find Your Doctor-->
+    <section class="find-your-doctor"></section>
     <script src="assets/js/index.js"></script>
   </body>
 </html>
