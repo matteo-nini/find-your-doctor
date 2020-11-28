@@ -1,0 +1,35 @@
+{
+  "name": "find-your-doctor",
+  "version": "1.0.0",
+  "description": "Browse hundreds of doctors specializing in certain categories and find the one that's right for you!",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matteo-nini/find-your-doctor.git"
+  },
+  "keywords": [
+    "doctors",
+    "find",
+    "doctors",
+    "dental",
+    "heart",
+    "eye",
+    "schedules",
+    "doctors",
+    "search",
+    "browse",
+    "doctors"
+  ],
+  "author": "Matteo Nini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matteo-nini/find-your-doctor/issues"
+  },
+  "homepage": "https://github.com/matteo-nini/find-your-doctor#readme",
+  "dependencies": {
+    "browser-sync": "^2.26.13"
+  }
+}
