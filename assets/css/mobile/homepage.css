@@ -1,0 +1,41 @@
+/*************************
+        HOMEPAGE     
+*************************/
+.homepage {
+  background: url("../../images/graphics/homepage_bg.webp") bottom left
+    no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+}
+
+.homepage__title {
+  margin: 140px 67px 8px 40px;
+  font-size: 30px;
+}
+
+.homepage__description {
+  margin: 0 4px 15px 40px;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.homepage__btn {
+  width: 145px;
+  height: 40px;
+  background: #ef716b;
+  border-radius: 35px;
+  margin: 0 190px auto 40px;
+  color: white;
+}
+
+.homepage__btn:hover,
+.homepage__btn:active {
+  background-color: white;
+  border: 1px solid #ef716b;
+  color: #ef716b;
+}

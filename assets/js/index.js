@@ -28,34 +28,26 @@ window.onload = function () {
   };
 
   if (ckMobile.any()) {
-    isMobile();
+    //Remove Desktop elements
+    let allDesktop = document.querySelectorAll(".desktop");
+    allDesktop.forEach((desktop) => {
+      desktop.style.display = "none";
+    });
+    getStarted();
   } else {
-    isDesktop();
+    //Remove all mobile elements
+    let allMobile = document.querySelectorAll("section");
+    allMobile.forEach((mobile) => {
+      mobile.style.display = "none";
+    });
+    console.log("You're in desktop");
   }
 };
-
-function isDesktop() {
-  //Remove all mobile elements
-  let allMobile = document.querySelectorAll("section");
-  allMobile.forEach((mobile) => {
-    mobile.style.display = "none";
-  });
-  console.log("You're in desktop");
-}
-
-function isMobile() {
-  //Remove Desktop elements
-  let allDesktop = document.querySelectorAll(".desktop");
-  allDesktop.forEach((desktop) => {
-    desktop.style.display = "none";
-  });
-  getStarted();
-}
 
 //Define all the sections
 const home = document.querySelector(".homepage");
 const login = document.querySelector(".login");
-const userDash = document.querySelector(".find-your-doctor");
+const userDash = document.querySelector(".dashboard");
 
 function getStarted() {
   //Get Started Button
@@ -111,7 +103,7 @@ function changePageAnimation(currentPage, finalPage, where) {
 //form validation
 function loginValidate(event) {
   let form = document.querySelector(".login__form");
-  let log = false;
+  let log = true; //CHANGE IT FOR TEST
   let name = document.querySelector("#name");
   let password = document.querySelector("#password");
   let Error = document.querySelectorAll(".login__form__validate");

@@ -54,7 +54,7 @@ a {
   background: linear-gradient(to bottom, #386ef2 10%, #4378f7 50%);
   position: fixed;
   bottom: 0;
-  left: 25%;
+  left: 0;
   height: 16%;
   width: 100%;
   z-index: -1;
