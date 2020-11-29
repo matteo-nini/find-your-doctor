@@ -103,6 +103,7 @@ function changePageAnimation(currentPage, finalPage, where) {
       finalPage.style.display = "flex";
     }
     preloader.style.opacity = "0";
+    currentPage.style.filter = "blur(0)";
   }, 1000);
 }
 
