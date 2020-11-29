@@ -6,6 +6,7 @@
 
 body {
   font-family: "Work Sans";
+  overscroll-behavior: contain;
 }
 
 p {
@@ -14,6 +15,8 @@ p {
 }
 
 h1 {
+  font-size: 30px;
+  line-height: 37.95px;
   font-weight: bold;
   color: #1e1c61;
 }
