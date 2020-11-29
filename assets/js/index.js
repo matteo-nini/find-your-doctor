@@ -65,6 +65,8 @@ function getStarted() {
 
 //page transition animation
 function changePageAnimation(currentPage, finalPage, where) {
+  let preloader = document.querySelector("#preloader");
+
   let slideOutKeyFrames = [
     { transform: "translateX(0%)" },
     { transform: "translateX(-120%)" },
@@ -84,20 +86,24 @@ function changePageAnimation(currentPage, finalPage, where) {
     { transform: "translateX(-120%)" },
     { transform: "translateX(0)" },
   ];
-
-  if (where == "next") {
-    let slideOut = currentPage.animate(slideOutKeyFrames, 700);
-    finalPage.animate(slideInKeyFrames, 500);
-    finalPage.style.display = "flex";
-    slideOut.onfinish = function () {
+  preloader.style.opacity = "1";
+  currentPage.style.filter = "blur(5px)";
+  setTimeout(function () {
+    if (where == "next") {
+      let slideOut = currentPage.animate(slideOutKeyFrames, 700);
+      finalPage.animate(slideInKeyFrames, 500);
+      finalPage.style.display = "flex";
+      slideOut.onfinish = function () {
+        currentPage.style.display = "none";
+      };
+    } else if (where == "prew") {
+      currentPage.animate(slideOutReverseKeyFrames, 500);
+      finalPage.animate(slideInReverseKeyFrames, 500);
       currentPage.style.display = "none";
-    };
-  } else if (where == "prew") {
-    currentPage.animate(slideOutReverseKeyFrames, 500);
-    finalPage.animate(slideInReverseKeyFrames, 500);
-    currentPage.style.display = "none";
-    finalPage.style.display = "flex";
-  }
+      finalPage.style.display = "flex";
+    }
+    preloader.style.opacity = "0";
+  }, 1000);
 }
 
 //form validation
@@ -137,10 +143,10 @@ function loginValidate(event) {
     Error[1].innerHTML = "Ok!";
     log = true;
   }
-  if (log == true) form.addEventListener("submit", logged(name));
+  if (log == true) form.addEventListener("submit", logged(name.value));
 }
 
 //user logged in
-function logged(name) {
+function logged(username) {
   changePageAnimation(login, userDash, "next");
 }

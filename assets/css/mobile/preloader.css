@@ -1,0 +1,52 @@
+#preloader {
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -20px;
+  margin-left: -20px;
+  opacity: 0;
+  z-index: 2;
+}
+
+#preloader:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -1px;
+  top: -1px;
+  height: 100%;
+  width: 100%;
+  animation: rotation 1s linear infinite;
+  border: 1px solid #386ef2;
+  border-top: 1px solid transparent;
+  border-radius: 50%;
+}
+#preloader > img.icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 35px;
+  width: 20.6px;
+  margin-top: -15.5px;
+  margin-left: -10px;
+  animation: wink 1s ease-in-out infinite alternate;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@keyframes wink {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
