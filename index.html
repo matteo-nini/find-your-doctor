@@ -127,10 +127,44 @@
       </div>
       <h1>Find Your Desired Doctor</h1>
       <div class="dashboard__search">
-        <input type="search" name="Search" id="search" />
-        <button type="submit"></button>
+        <input
+          type="search"
+          name="Search"
+          id="search"
+          placeholder="Search for doctors"
+        />
+        <button type="submit" value="Search"></button>
+      </div>
+      <!--<div class="dashboard__categories">
+        <h3>Categories</h3>
+        <ul class="dashboard__categories__slider">
+          <li class="categories__slider__item">Dental Surgeon</li>
+          <li class="categories__slider__item">Heart Surgeon</li>
+          <li class="categories__slider__item">Eye Specialist</li>
+        </ul>
+      </div>-->
+      <div class="dashboard__categories">
+        <h3>Categories</h3>
+        <div class="dahboard__categories__slider">
+          <div class="categories__slider__item">
+            <img
+              src="assets/images/icons/dental_ico.svg"
+              alt="Dental surgeon"
+            />
+            <span>Dental Surgeon</span>
+          </div>
+          <div class="categories__slider__item">
+            <img src="assets/images/icons/heart_ico.svg" alt="Heart surgeon" />
+            <span>Heart Surgeon</span>
+          </div>
+          <div class="categories__slider__item">
+            <img src="assets/images/icons/eye_ico.svg" alt="Eye Specialist" />
+            <span>Eye Specialist</span>
+          </div>
+        </div>
       </div>
     </section>
+
     <script src="assets/js/index.js"></script>
   </body>
 </html>
