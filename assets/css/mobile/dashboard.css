@@ -11,7 +11,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-color: white;
+  background: #f9f9f9;
   display: none;
   flex-direction: column;
   padding: 50px 25px 0;
@@ -25,7 +25,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   position: sticky;
   top: 0;
 }
@@ -146,7 +146,7 @@
 .dashboard__doctors {
   width: 100%;
   height: auto;
-  transform: translateY(20px);
+  transform: translateY(40px);
 }
 
 .doctors__list {
