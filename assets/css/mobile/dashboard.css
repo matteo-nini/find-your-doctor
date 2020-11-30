@@ -1,6 +1,10 @@
 /*************************
-        FIND YOUR DOC     
+    FIND YOUR DOC PAGE   
 *************************/
+.dashboard h3 {
+  color: #1e1c61;
+}
+
 .dashboard {
   width: 100%;
   height: 100vh;
@@ -12,6 +16,8 @@
   flex-direction: column;
   padding: 50px 25px 0;
 }
+
+/* Top menu section ******************** */
 
 .dashboard__menu {
   width: 100%;
@@ -41,6 +47,8 @@
   margin-bottom: -15px;
 }
 
+/* Search section ******************** */
+
 .dashboard__search {
   width: 100%;
   margin: 20px auto;
@@ -69,12 +77,11 @@
   transform: translateX(-20px);
 }
 
-/************************
-      CATEGORIES
-**********************/
+/* Categories section ******************** */
 
 .dashboard__categories {
   width: 100%;
+  height: 300px;
   text-align: left;
   overflow: hidden;
 }
@@ -132,4 +139,55 @@
 
 .categories__slider__item:nth-child(3) span {
   transform: translateX(10px);
+}
+
+/* Top Doctors section ******************** */
+
+.dashboard__doctors {
+  width: 100%;
+  height: auto;
+  transform: translateY(20px);
+}
+
+.doctors__list {
+  margin-top: 20px;
+  list-style-type: none;
+}
+
+.doctors__list__item {
+  width: 100%;
+  height: 87px;
+  border-radius: 13px;
+  background: #edf1fa;
+  margin: 15px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+}
+
+.doctors__list__item:nth-child(1) {
+  background: #edf1fa;
+}
+
+.doctors__list__item:nth-child(2) {
+  background: #faf2ea;
+}
+
+.doctors__list__item:nth-child(3) {
+  background: #f9edeb;
+}
+
+.doctors__list__item__info {
+  margin-left: 15px;
+}
+
+.doctors__list__item__info h3 {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.doctors__list__item__info span {
+  font-size: 14px;
+  line-height: 24px;
 }
