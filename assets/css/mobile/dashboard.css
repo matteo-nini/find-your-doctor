@@ -21,13 +21,13 @@
 
 .dashboard__menu {
   width: 100%;
-  height: 50px;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 40px;
   position: sticky;
-  top: 30px;
+  top: 0px;
   background: #f9f9f9;
 }
 
@@ -80,13 +80,18 @@
   transform: translateX(-20px);
 }
 
+.dashboard__search button.active {
+  background-color: white;
+  background-image: url("../../images/icons/close_ico.svg");
+  border: 1px solid #f57e71;
+}
+
 /* Categories section ******************** */
 
 .dashboard__categories {
   width: 100%;
-  height: 300px;
+  height: auto;
   text-align: left;
-  overflow: hidden;
 }
 
 .dahboard__categories__slider {
@@ -149,7 +154,6 @@
 .dashboard__doctors {
   width: 100%;
   height: auto;
-  transform: translateY(40px);
 }
 
 .doctors__list {

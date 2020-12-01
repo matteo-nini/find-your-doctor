@@ -7,6 +7,7 @@
 body {
   font-family: "Work Sans";
   overscroll-behavior: contain;
+  scroll-behavior: smooth;
 }
 
 p {
@@ -49,4 +50,5 @@ input {
   border-radius: 73px;
   padding: 15px;
   border: 0;
+  outline: none;
 }

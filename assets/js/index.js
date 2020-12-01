@@ -109,29 +109,56 @@ function loginValidate(event) {
 function logged(username) {
   let menu = document.querySelector(".dashboard__menu__ico"); //menu icon
   let avatar = document.querySelector(".dashboard__menu__user"); //user icon
-  let sideMenu = document.querySelector(".menu__center"); //Center menu hidden
   let menuElements = document.querySelectorAll(".menu__center li"); //Center menu elements
+  let inputBtn = document.querySelector(".dashboard__search button"); //Search button
 
+  //on click menu button
   menu.addEventListener("click", (event) => {
-    if (sideMenu.style.display == "flex") sideMenu.style.display = "none";
-    else {
-      sideMenu.style.display = "flex"; //show menu
-      menuElements[0].innerHTML = "<a href='#'>Categories</a>"; //add link to Categories section
-      menuElements[1].innerHTML = "<a href='#'>Top Doctors</a>"; //add link to Top Doctors section
-      menuElements[2].style.display = "none"; //don't show it
-    }
+    showMenu();
+    menuElements[0].innerHTML = "<a href='#categories'>Categories</a>"; //add link to Categories section
+    menuElements[1].innerHTML = "<a href='#doctors'>Top Doctors</a>"; //add link to Top Doctors section
+    menuElements[2].innerHTML = "";
   });
 
+  //on click avatar button
   avatar.addEventListener("click", (event) => {
-    if (sideMenu.style.display == "none") {
-      sideMenu.style.display = "flex";
-      menuElements[0].innerHTML = `Hi ${username}!`; //Take the username to show it
-      menuElements[1].innerHTML = "<a href='#'>Options</a>"; //Fake option page link
-      menuElements[2].innerHTML =
-        "<a href='#' onclick='changePageAnimation(userDash, login, \"prew\");'>Exit</a>"; //Exit link send user to login page
-    } else {
-      sideMenu.style.display = "none";
-    }
+    showMenu();
+    menuElements[0].innerHTML = `Hi ${username}!`; //Take the username to show it
+    menuElements[1].innerHTML = "<a href='#'>Options</a>"; //Fake option page link
+    menuElements[2].innerHTML =
+      "<a href='#' onclick='changePageAnimation(userDash, login, \"prew\");'>Exit</a>"; //Exit link send user to login page
+  });
+
+  //on click search button
+  inputBtn.addEventListener("click", (event) => {
+    if (inputBtn.classList.contains("active")) cleanSearch();
+    //if search is alredy done, clean it
+    else searchDoctors(); //else search for doctors
+    inputBtn.classList.toggle("active"); //change the button status
+  });
+}
+
+//function for search doctors by name
+function searchDoctors() {
+  let input = document.querySelector("#search").value.toUpperCase();
+  let doctors = document.querySelectorAll(".doctors__list__item");
+
+  // Loop through all list items, and hide those who don't match the search query
+  doctors.forEach((doctor) => {
+    let nameTag = doctor.getElementsByTagName("h3")[0]; //take the h3 tag
+    let name = nameTag.innerText || nameTag.textContent; //take the h3 content
+    if (name.toUpperCase().indexOf(input) > -1) doctor.style.display = "";
+    else doctor.style.display = "none";
+  });
+}
+
+//function for clear the search results
+function cleanSearch() {
+  let input = document.querySelector("#search");
+  let doctors = document.querySelectorAll(".doctors__list__item");
+  input.value = "";
+  doctors.forEach((doctor) => {
+    doctor.style.display = "";
   });
 }
 
@@ -182,4 +209,11 @@ function changePageAnimation(currentPage, finalPage, where) {
   }, 1000);
 }
 
-function showMenu() {}
+//function for show the central menu
+function showMenu() {
+  let sideMenu = document.querySelector(".menu__center"); //Center menu hidden
+
+  if (sideMenu.style.display == "none") sideMenu.style.display = "flex";
+  else if (sideMenu.style.display == "flex") sideMenu.style.display = "none";
+  else sideMenu.style.display = "none";
+}
