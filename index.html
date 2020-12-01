@@ -134,38 +134,46 @@
       <div class="dashboard__search">
         <input
           type="search"
-          name="Search"
+          name="search"
           id="search"
           placeholder="Search for doctors"
         />
         <button type="submit" value="Search"></button>
       </div>
 
+      <a name="categories"></a>
       <div class="dashboard__categories">
         <h3>Categories</h3>
         <div class="dahboard__categories__slider">
-          <div class="categories__slider__item">
+          <div
+            class="categories__slider__item"
+            onclick="filterCategory('dental')"
+          >
             <img
               src="assets/images/icons/dental_ico.svg"
               alt="Dental surgeon"
             />
             <span>Dental Surgeon</span>
           </div>
-          <div class="categories__slider__item">
+          <div
+            class="categories__slider__item"
+            onclick="filterCategory('heart')"
+          >
             <img src="assets/images/icons/heart_ico.svg" alt="Heart surgeon" />
             <span>Heart Surgeon</span>
           </div>
-          <div class="categories__slider__item">
+          <div class="categories__slider__item" onclick="filterCategory('eye')">
             <img src="assets/images/icons/eye_ico.svg" alt="Eye Specialist" />
             <span>Eye Specialist</span>
           </div>
         </div>
       </div>
 
+      <a name="doctors"></a>
       <div class="dashboard__doctors">
         <h3>Top Doctors</h3>
         <ul class="doctors__list">
-          <li class="doctors__list__item">
+          <li class="doctors__list__item heart">
             <img
               src="assets/images/avatars/doc_avatar_1.svg"
               alt="Dr. Stella Kane"
@@ -175,7 +183,7 @@
               <span>Heart Surgeon - Flower Hospitals</span>
             </div>
           </li>
-          <li class="doctors__list__item">
+          <li class="doctors__list__item dental">
             <img
               src="assets/images/avatars/doc_avatar_2.svg"
               alt="Dr. Joseph Cart"
@@ -185,7 +193,7 @@
               <span>Dental Surgeon - Flower Hospitals</span>
             </div>
           </li>
-          <li class="doctors__list__item">
+          <li class="doctors__list__item heart">
             <img
               src="assets/images/avatars/doc_avatar_3.svg"
               alt="Dr. Stefani Albert"

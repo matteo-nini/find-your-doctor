@@ -101,16 +101,15 @@ function loginValidate(event) {
   //If all is ok, on submit,change page, than go to logged() and take the name value for showing later
   if (canLog == true) {
     changePageAnimation(login, userDash, "next");
-    form.addEventListener("submit", logged(name.value));
+    form.addEventListener("submit", dashboard(name.value));
   }
 }
 
 //user logged in
-function logged(username) {
+function dashboard(username) {
   let menu = document.querySelector(".dashboard__menu__ico"); //menu icon
   let avatar = document.querySelector(".dashboard__menu__user"); //user icon
   let menuElements = document.querySelectorAll(".menu__center li"); //Center menu elements
-  let inputBtn = document.querySelector(".dashboard__search button"); //Search button
 
   //on click menu button
   menu.addEventListener("click", (event) => {
@@ -129,6 +128,52 @@ function logged(username) {
       "<a href='#' onclick='changePageAnimation(userDash, login, \"prew\");'>Exit</a>"; //Exit link send user to login page
   });
 
+  //function call for handle the searching input
+  handleSearch();
+}
+
+// function createDoctorsList() {
+//   let doctors = [
+//     {
+//       image: "assets/images/avatars/doc_avatar_1.svg",
+//       name: "Dr. Stella Kane",
+//       specialist: "Heart Surgeon - Flower Hospitals",
+//     },
+//     {
+//       image: "assets/images/avatars/doc_avatar_2.svg",
+//       name: "Dr. Joseph Cart",
+//       specialist: "Dental Surgeon - Flower Hospitals",
+//     },
+//     {
+//       image: "assets/images/avatars/doc_avatar_3.svg",
+//       name: "Dr. Stefani Albert",
+//       specialist: "Heart Surgeon - Flower Hospitals",
+//     },
+//   ];
+
+//   let dashTitle = document.querySelector(".dashboard__doctors h3");
+//   let doctorsList = document.createElement("ul");
+//   doctorsList.className = "doctors__list";
+//   let listItem = document.createElement("li");
+//   listItem.className = "doctors__list__item";
+//   let docImage = document.createElement("img");
+//   let docInfo = document.createElement("div");
+//   docInfo.className = "doctors__list__item__info";
+//   let docName = document.createElement("h3");
+//   let docSpecialization = document.createElement("span");
+
+//   dashTitle.appendChild(doctorsList);
+//   window.alert(doctors.length);
+//   doctorsList.appendChild(listItem);
+//   listItem.appendChild(listItem);
+//   doctorsList.appendChild(listItem);
+// }
+
+/*************************************** SEARCHING & FILTERING FUNCTIONS */
+
+//handle the search button
+function handleSearch() {
+  let inputBtn = document.querySelector(".dashboard__search button"); //Search button
   //on click search button
   inputBtn.addEventListener("click", (event) => {
     if (inputBtn.classList.contains("active")) cleanSearch();
@@ -147,8 +192,11 @@ function searchDoctors() {
   doctors.forEach((doctor) => {
     let nameTag = doctor.getElementsByTagName("h3")[0]; //take the h3 tag
     let name = nameTag.innerText || nameTag.textContent; //take the h3 content
-    if (name.toUpperCase().indexOf(input) > -1) doctor.style.display = "";
-    else doctor.style.display = "none";
+    if (name.toUpperCase().indexOf(input) > -1) {
+      doctor.style.display = "";
+    } else {
+      doctor.style.display = "none";
+    }
   });
 }
 
@@ -161,6 +209,32 @@ function cleanSearch() {
     doctor.style.display = "";
   });
 }
+
+function filterCategory(whatCategory) {
+  let doctors = document.querySelectorAll(".doctors__list__item");
+  switch (whatCategory) {
+    case "dental":
+      doctors.forEach((doc) => {
+        if (doc.classList.contains("dental")) doc.style.display = "";
+        else doc.style.display = "none";
+      });
+      break;
+    case "heart":
+      doctors.forEach((doc) => {
+        if (doc.classList.contains("heart")) doc.style.display = "";
+        else doc.style.display = "none";
+      });
+      break;
+    case "eye":
+      doctors.forEach((doc) => {
+        if (doc.classList.contains("eye")) doc.style.display = "";
+        else doc.style.display = "none";
+      });
+      break;
+  }
+}
+
+/***************************************************** ANIMATIONS FUNCTIONS */
 
 //Function for page transition animation
 function changePageAnimation(currentPage, finalPage, where) {
