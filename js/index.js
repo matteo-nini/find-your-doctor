@@ -92,16 +92,83 @@ function loginValidate(event) {
 
 //user logged in
 function dashboard() {
-  let doctors = document.querySelectorAll(".list__item");
-  doctors.forEach((doctor) => {
-    doctor.addEventListener("click", () => {
+  createDoctorsList();
+}
+
+//function for create doctor list
+function createDoctorsList() {
+  //Define doctors array
+  let doctors = [
+    {
+      avatar: "assets/images/avatars/doc_avatar_1.svg",
+      name: "Dr. Stella Kane",
+      category: "Heart Surgeon - Flower Hospitals",
+      about:
+        "Dr. Stella is the top most heart surgeon in Flower Hospital. She has done over 100 successful sugeries within past 3 years. She has achieved several awards for her wonderful contribution in her own field. She’s available for private consultation for given schedules.",
+    },
+    {
+      avatar: "assets/images/avatars/doc_avatar_2.svg",
+      name: "Dr. Joseph Car",
+      category: "Dental Surgeon - Flower Hospitals",
+      about: "lorem ipsum",
+    },
+    {
+      avatar: "assets/images/avatars/doc_avatar_3.svg",
+      name: "Dr. Stefani Albert",
+      category: "Heart Surgeon - Flower Hospitals",
+      about:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam fugit maxime nesciunt, at neque reiciendis eos, consequuntur omnis, modi totam aliquid qui iste eius odit deleniti facere! Nisi, cumque fugiat.",
+    },
+  ];
+
+  let colors = ["#edf1fa", "#faf2ea", "#f9edeb"];
+
+  let startPoint = document.querySelector(".dashboard__doctors h3"); //where start to append items
+  let list = document.createElement("ul");
+  list.className = "list";
+  startPoint.appendChild(list);
+
+  //loop from frist object 0 to last and start writing the list
+  doctors.forEach((doctor, i) => {
+    let listItem = document.createElement("li");
+    listItem.className = "list__item";
+    listItem.style.background = colors[i];
+    if (doctor.category.includes("Heart")) listItem.classList.add("heart");
+    else if (doctor.category.includes("Dental"))
+      listItem.classList.add("dental");
+    else if (doctor.category.includes("Eye")) listItem.classList.add("eye");
+    let avatar = document.createElement("img");
+    avatar.src = doctor.avatar;
+    let infoBox = document.createElement("div");
+    infoBox.className = "list__item__info";
+    let name = document.createElement("h3");
+    let spec = document.createElement("p");
+    list.appendChild(listItem);
+    listItem.appendChild(avatar);
+    listItem.appendChild(infoBox);
+    infoBox.appendChild(name);
+    name.innerText = doctor.name;
+    infoBox.appendChild(spec);
+    spec.innerText = doctor.category;
+    listItem.addEventListener("click", (event) => {
       changePageAnimation(dashboardPage, doctorPage, "next");
       docInfoPage(doctor);
     });
   });
 }
 
-function docInfoPage(selectedDoc) {}
+//Function for Selected Doctor Page
+function docInfoPage(selectedDoc) {
+  let docPic = document.querySelector(".doctor__profile__pic"); //Take the avatar
+  let docName = document.querySelector(".doctor__profile__info__name"); //Take the name
+  let docSpec = document.querySelector("doctor__profile__info__spec"); //Take the specialization
+  let docAbout = document.querySelector(".doctor__about__about");
+
+  docPic.src = selectedDoc.avatar;
+  docName.innerHTML = selectedDoc.name;
+  docSpec.innerHTML = selectedDoc.category;
+  docAbout.innerHTML = selectedDoc.about;
+}
 
 /*************************************** SEARCHING & FILTERING FUNCTIONS */
 
