@@ -53,7 +53,7 @@ window.onload = function () {
 
 //login form validation
 function loginValidate(event) {
-  let canLog = true; //Flag for check the log status False: not logged | True: logged CHANGE IT FOR TEST
+  let canLog = false; //Flag for check the log status False: not logged | True: logged
   let name = document.querySelector("#name"); //input name
   let password = document.querySelector("#password"); //input password
   let Error = document.querySelectorAll(".login__form__validate"); //span
@@ -86,13 +86,8 @@ function loginValidate(event) {
   if (canLog == true) {
     localStorage.setItem("username", name.value);
     changePageAnimation(loginPage, dashboardPage, "next");
-    dashboard();
+    createDoctorsList();
   } else return false;
-}
-
-//user logged in
-function dashboard() {
-  createDoctorsList();
 }
 
 //function for create doctor list
