@@ -103,7 +103,7 @@ function createDoctorsList() {
     },
     {
       avatar: "assets/images/avatars/doc_avatar_2.svg",
-      name: "Dr. Joseph Car",
+      name: "Dr. Joseph Cart",
       category: "Dental Surgeon - Flower Hospitals",
       about: "lorem ipsum",
     },
