@@ -92,7 +92,7 @@ function loginValidate(event) {
 
 //user logged in
 function dashboard() {
-  let doctors = document.querySelectorAll(".doctors__list__item");
+  let doctors = document.querySelectorAll(".list__item");
   doctors.forEach((doctor) => {
     doctor.addEventListener("click", () => {
       changePageAnimation(dashboardPage, doctorPage, "next");
@@ -117,7 +117,7 @@ function handleSearch() {
 //function for search doctors by name
 function searchDoctors() {
   let input = document.querySelector("#search").value.toUpperCase();
-  let doctors = document.querySelectorAll(".doctors__list__item");
+  let doctors = document.querySelectorAll(".list__item");
 
   // Loop through all list items, and hide those who don't match the search query
   doctors.forEach((doctor) => {
@@ -134,7 +134,7 @@ function searchDoctors() {
 //function for clear the search results
 function cleanSearch() {
   let input = document.querySelector("#search");
-  let doctors = document.querySelectorAll(".doctors__list__item");
+  let doctors = document.querySelectorAll(".list__item");
   input.value = "";
   doctors.forEach((doctor) => {
     doctor.style.display = "";
@@ -142,7 +142,7 @@ function cleanSearch() {
 }
 
 function filterCategory(whatCategory) {
-  let doctors = document.querySelectorAll(".doctors__list__item");
+  let doctors = document.querySelectorAll(".list__item");
   switch (whatCategory) {
     case "dental":
       doctors.forEach((doc) => {

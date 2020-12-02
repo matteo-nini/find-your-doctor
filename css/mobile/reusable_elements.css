@@ -1,0 +1,133 @@
+/***************************** Reusable Menu */
+
+.menu {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  background: transparent;
+}
+
+.--dash {
+  background: #f9f9f9 !important;
+}
+
+.--doc {
+  padding: 10px 25px;
+}
+
+.menu button {
+  background: transparent;
+}
+
+.menu button.--user {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #5a4980 50%, #534378 100%);
+  clip-path: circle();
+}
+
+.menu button.--user img {
+  margin-bottom: -15px;
+}
+
+.menu--center {
+  display: none;
+  background: transparent;
+  transition: all 0.5s linear;
+  height: 50px;
+  list-style-type: none;
+  align-items: center;
+  justify-content: space-around;
+  animation: appear 0.5s linear;
+}
+
+.menu--center li {
+  margin: 0px 10px;
+}
+.menu--center li a {
+  color: #f57e71;
+  z-index: 3;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/************************ Reusable list */
+
+.list {
+  margin-top: 20px;
+  list-style-type: none;
+}
+
+.list__item {
+  width: 100%;
+  height: 87px;
+  border-radius: 13px;
+  margin: 15px auto;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.list__item:nth-child(1) {
+  background: #edf1fa;
+}
+
+.list__item:nth-child(2) {
+  background: #faf2ea;
+}
+
+.list__item:nth-child(3) {
+  background: #f9edeb;
+}
+
+.list__item__box {
+  width: 55px;
+  height: 57px;
+  border-radius: 7px;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.list__item:nth-child(1) .list__item__box {
+  background: #d8e3ff;
+}
+
+.list__item:nth-child(2) .list__item__box {
+  background: #ffead6;
+}
+
+.list__item:nth-child(2) .list__item__box h2,
+.list__item:nth-child(2) .list__item__box h3 {
+  color: #ffb167 !important;
+}
+
+.list__item:nth-child(1) .list__item__box h2,
+.list__item:nth-child(1) .list__item__box h3 {
+  color: #4b7ffb !important;
+}
+
+.list__item__info {
+  margin-left: 15px;
+  align-self: start;
+}
+
+.list__item__info p {
+  font-size: 14px;
+  line-height: 24px;
+}

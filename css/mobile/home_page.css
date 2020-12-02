@@ -2,7 +2,7 @@
         HOMEPAGE     
 *************************/
 .homepage {
-  background: url("../../images/graphics/homepage_bg.webp") bottom left
+  background: url("../../assets/images/graphics/homepage_bg.webp") bottom left
     no-repeat;
   background-size: contain;
   position: absolute;
@@ -19,6 +19,7 @@
 }
 
 .homepage__description {
+  width: 270px;
   margin: 0 4px 15px 40px;
   font-size: 16px;
   line-height: 24px;

@@ -19,34 +19,24 @@
       property="og:description"
       content="Browse hundreds of doctors specializing in certain categories and find the one that's right for you!"
     />
-    <meta property="og:url" content="" />
+    <meta property="og:url" content="https://findyourdoctor.netlify.app" />
     <meta
       property="og:image"
-      content="assets/images/graphics/application_demo.webp"
+      content="assets/images/graphics/application_demo.jpg"
     />
     <meta property="og: site_name" content="Find Your Doctor!" />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="large_image" />
     <meta name="twitter:site" content="@matteonini" />
     <meta name="twitter:creator" content="@matteonini" />
-    <meta property="og:url" content="" />
-    <meta property="og:title" content="Find Your Doctor!" />
-    <meta
-      property="og:description"
-      content="Browse hundreds of doctors specializing in certain categories and find the one that's right for you!"
-    />
-    <meta
-      property="og:image"
-      content="assets/images/graphics/application_demo.webp"
-    />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <meta charset="UTF-8" />
-    <link rel="canonical" href="" />
-    <link rel="icon" href="assets/images/graphics/homepage_bg.webp" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="canonical" href="https://findyourdoctor.netlify.app" />
+    <link rel="icon" href="assets/images/icons/heart__ico--modify.svg" />
+    <link rel="stylesheet" href="css/main.css" />
     <link
       rel="stylesheet"
-      href="assets/css/desktop.css"
+      href="css/desktop.css"
       media="screen and (min-width: 1224px)"
     />
     <title>Find Your Doctor!</title>
@@ -185,35 +175,35 @@
       <a name="doctors"></a>
       <div class="dashboard__doctors">
         <h3>Top Doctors</h3>
-        <ul class="doctors__list">
-          <li class="doctors__list__item heart">
+        <ul class="list">
+          <li class="list__item heart">
             <img
               src="assets/images/avatars/doc_avatar_1.svg"
               alt="Dr. Stella Kane"
             />
-            <div class="doctors__list__item__info">
+            <div class="list__item__info">
               <h3>Dr. Stella Kane</h3>
-              <span>Heart Surgeon - Flower Hospitals</span>
+              <p>Heart Surgeon - Flower Hospitals</p>
             </div>
           </li>
-          <li class="doctors__list__item dental">
+          <li class="list__item dental">
             <img
               src="assets/images/avatars/doc_avatar_2.svg"
               alt="Dr. Joseph Cart"
             />
-            <div class="doctors__list__item__info">
+            <div class="list__item__info">
               <h3>Dr. Joseph Cart</h3>
-              <span>Dental Surgeon - Flower Hospitals</span>
+              <p>Dental Surgeon - Flower Hospitals</p>
             </div>
           </li>
-          <li class="doctors__list__item heart">
+          <li class="list__item heart">
             <img
               src="assets/images/avatars/doc_avatar_3.svg"
               alt="Dr. Stefani Albert"
             />
-            <div class="doctors__list__item__info">
+            <div class="list__item__info">
               <h3>Dr. Stefani Albert</h3>
-              <span>Heart Surgeon - Flower Hospitals</span>
+              <p>Heart Surgeon - Flower Hospitals</p>
             </div>
           </li>
         </ul>
@@ -239,8 +229,66 @@
           </button>
         </div>
       </div>
+      <div class="selected__doctor__container">
+        <div class="doctor__profile">
+          <img
+            class="doctor__profile__pic"
+            src="assets/images/avatars/doc_avatar_1.svg"
+            alt="doc_avatar_1"
+          />
+          <div class="doctor__profile__info">
+            <h3>Nome Dottore</h3>
+            <p>Specializzazione</p>
+            <ul>
+              <li>
+                <img src="assets/images/icons/phone_ico.svg" alt="Call" />
+              </li>
+              <li>
+                <img src="assets/images/icons/message_ico.svg" alt="Message" />
+              </li>
+              <li>
+                <img src="assets/images/icons/video_ico.svg" alt="Videocall" />
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="doctor__about">
+          <h3>About Doctor</h3>
+          <p>
+            Dr. Stella is the top most heart surgeon in Flower Hospital. She has
+            done over 100 successful sugeries within past 3 years. She has
+            achieved several awards for her wonderful contribution in her own
+            field. She’s available for private consultation for given schedules.
+          </p>
+        </div>
+        <div class="doctor__schedules">
+          <h3>Upcoming Schedules</h3>
+          <ul class="list">
+            <li class="list__item">
+              <div class="list__item__box">
+                <h2>12</h2>
+                <h3>Jan</h3>
+              </div>
+              <div class="list__item__info">
+                <h3>Consultation</h3>
+                <p>Sunday . 9am - 11am</p>
+              </div>
+            </li>
+            <li class="list__item">
+              <div class="list__item__box">
+                <h2>13</h2>
+                <h3>Jan</h3>
+              </div>
+              <div class="list__item__info">
+                <h3>Consultation</h3>
+                <p>Monday . 9am - 11am</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-    <script src="assets/js/index.js"></script>
+    <script src="js/index.js"></script>
   </body>
 </html>

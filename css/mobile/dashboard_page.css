@@ -37,7 +37,7 @@
   height: 53px;
   background-color: #f57e71;
   border-radius: 64px;
-  background-image: url("../../images/icons/search_ico.svg");
+  background-image: url("../../assets/images/icons/search_ico.svg");
   background-position: center;
   background-repeat: no-repeat;
   position: absolute;
@@ -47,7 +47,7 @@
 
 .dashboard__search button.active {
   background-color: white;
-  background-image: url("../../images/icons/close_ico.svg");
+  background-image: url("../../assets/images/icons/close_ico.svg");
   border: 1px solid #f57e71;
 }
 
@@ -119,47 +119,4 @@
 .dashboard__doctors {
   width: 100%;
   height: auto;
-}
-
-.doctors__list {
-  margin-top: 20px;
-  list-style-type: none;
-}
-
-.doctors__list__item {
-  width: 100%;
-  height: 87px;
-  border-radius: 13px;
-  background: #edf1fa;
-  margin: 15px auto;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 20px;
-}
-
-.doctors__list__item:nth-child(1) {
-  background: #edf1fa;
-}
-
-.doctors__list__item:nth-child(2) {
-  background: #faf2ea;
-}
-
-.doctors__list__item:nth-child(3) {
-  background: #f9edeb;
-}
-
-.doctors__list__item__info {
-  margin-left: 15px;
-}
-
-.doctors__list__item__info h3 {
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.doctors__list__item__info span {
-  font-size: 14px;
-  line-height: 24px;
 }
