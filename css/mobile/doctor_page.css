@@ -54,6 +54,10 @@
   align-self: flex-end;
 }
 
+.doctor__profile__info p {
+  font-size: 14px;
+}
+
 .doctor__profile__info ul {
   margin-top: 7px;
   list-style-type: none;

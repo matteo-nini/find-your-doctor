@@ -121,6 +121,7 @@ function createDoctorsList() {
     },
   ];
 
+  //And colors array
   let colors = ["#edf1fa", "#faf2ea", "#f9edeb"];
 
   let startPoint = document.querySelector(".dashboard__doctors h3"); //where start to append items
@@ -160,14 +161,14 @@ function createDoctorsList() {
 //Function for Selected Doctor Page
 function docInfoPage(selectedDoc) {
   let docPic = document.querySelector(".doctor__profile__pic"); //Take the avatar
-  let docName = document.querySelector(".doctor__profile__info__name"); //Take the name
-  let docSpec = document.querySelector("doctor__profile__info__spec"); //Take the specialization
-  let docAbout = document.querySelector(".doctor__about__about");
+  let docName = document.querySelector(".doctor__profile__info h3"); //Take the name
+  let docSpec = document.querySelector(".doctor__profile__info p"); //Take the specialization
+  let docAbout = document.querySelector(".doctor__about p");
 
-  docPic.src = selectedDoc.avatar;
-  docName.innerHTML = selectedDoc.name;
-  docSpec.innerHTML = selectedDoc.category;
-  docAbout.innerHTML = selectedDoc.about;
+  docPic.src = `${selectedDoc.avatar}`;
+  docName.innerHTML = `${selectedDoc.name}`;
+  docSpec.innerHTML = `${selectedDoc.category}`;
+  docAbout.innerHTML = `${selectedDoc.about}`;
 }
 
 /*************************************** SEARCHING & FILTERING FUNCTIONS */
