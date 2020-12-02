@@ -4,6 +4,7 @@
 @import url("mobile/preloader.css");
 @import url("mobile/login.css");
 @import url("mobile/dashboard.css");
+@import url("mobile/selected_doctor.css");
 
 @media screen and (max-width: 1224px) {
   .desktop {

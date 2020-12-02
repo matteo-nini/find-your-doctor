@@ -1,3 +1,9 @@
+//Define all the sections
+const homePage = document.querySelector(".homepage");
+const loginPage = document.querySelector(".login");
+const dashboardPage = document.querySelector(".dashboard");
+const doctorPage = document.querySelector(".selected__doctor");
+
 //On load check device
 window.onload = function () {
   let ckMobile = {
@@ -34,7 +40,6 @@ window.onload = function () {
     allDesktop.forEach((desktop) => {
       desktop.style.display = "none";
     });
-    getStarted(); //first function that handle the clickable Get Started Button
   } else {
     //if is desktop
     //Remove all mobile elements
@@ -46,29 +51,8 @@ window.onload = function () {
   }
 };
 
-//Define all the sections
-const home = document.querySelector(".homepage");
-const login = document.querySelector(".login");
-const userDash = document.querySelector(".dashboard");
-
-//Function for handle the eventListeners
-function getStarted() {
-  //Get Started Button
-  let startBtn = document.querySelector(".homepage__btn");
-  startBtn.addEventListener("click", (event) => {
-    changePageAnimation(home, login, "next"); //Show login page
-  });
-
-  //GoBack Button in login section
-  let goback = document.querySelector(".login__go-back");
-  goback.addEventListener("click", (event) => {
-    changePageAnimation(login, home, "prew");
-  });
-}
-
 //login form validation
 function loginValidate(event) {
-  let form = document.querySelector(".login__form"); //login form
   let canLog = true; //Flag for check the log status False: not logged | True: logged CHANGE IT FOR TEST
   let name = document.querySelector("#name"); //input name
   let password = document.querySelector("#password"); //input password
@@ -100,87 +84,34 @@ function loginValidate(event) {
   }
   //If all is ok, on submit,change page, than go to logged() and take the name value for showing later
   if (canLog == true) {
-    changePageAnimation(login, userDash, "next");
-    form.addEventListener("submit", dashboard(name.value));
-  }
+    localStorage.setItem("username", name.value);
+    changePageAnimation(loginPage, dashboardPage, "next");
+    dashboard();
+  } else return false;
 }
 
 //user logged in
-function dashboard(username) {
-  let menu = document.querySelector(".dashboard__menu__ico"); //menu icon
-  let avatar = document.querySelector(".dashboard__menu__user"); //user icon
-  let menuElements = document.querySelectorAll(".menu__center li"); //Center menu elements
-
-  //on click menu button
-  menu.addEventListener("click", (event) => {
-    showMenu();
-    menuElements[0].innerHTML = "<a href='#categories'>Categories</a>"; //add link to Categories section
-    menuElements[1].innerHTML = "<a href='#doctors'>Top Doctors</a>"; //add link to Top Doctors section
-    menuElements[2].innerHTML = "";
+function dashboard() {
+  let doctors = document.querySelectorAll(".doctors__list__item");
+  doctors.forEach((doctor) => {
+    doctor.addEventListener("click", () => {
+      changePageAnimation(dashboardPage, doctorPage, "next");
+      docInfoPage(doctor);
+    });
   });
-
-  //on click avatar button
-  avatar.addEventListener("click", (event) => {
-    showMenu();
-    menuElements[0].innerHTML = `Hi ${username}!`; //Take the username to show it
-    menuElements[1].innerHTML = "<a href='#'>Options</a>"; //Fake option page link
-    menuElements[2].innerHTML =
-      "<a href='#' onclick='changePageAnimation(userDash, login, \"prew\");'>Exit</a>"; //Exit link send user to login page
-  });
-
-  //function call for handle the searching input
-  handleSearch();
 }
 
-// function createDoctorsList() {
-//   let doctors = [
-//     {
-//       image: "assets/images/avatars/doc_avatar_1.svg",
-//       name: "Dr. Stella Kane",
-//       specialist: "Heart Surgeon - Flower Hospitals",
-//     },
-//     {
-//       image: "assets/images/avatars/doc_avatar_2.svg",
-//       name: "Dr. Joseph Cart",
-//       specialist: "Dental Surgeon - Flower Hospitals",
-//     },
-//     {
-//       image: "assets/images/avatars/doc_avatar_3.svg",
-//       name: "Dr. Stefani Albert",
-//       specialist: "Heart Surgeon - Flower Hospitals",
-//     },
-//   ];
-
-//   let dashTitle = document.querySelector(".dashboard__doctors h3");
-//   let doctorsList = document.createElement("ul");
-//   doctorsList.className = "doctors__list";
-//   let listItem = document.createElement("li");
-//   listItem.className = "doctors__list__item";
-//   let docImage = document.createElement("img");
-//   let docInfo = document.createElement("div");
-//   docInfo.className = "doctors__list__item__info";
-//   let docName = document.createElement("h3");
-//   let docSpecialization = document.createElement("span");
-
-//   dashTitle.appendChild(doctorsList);
-//   window.alert(doctors.length);
-//   doctorsList.appendChild(listItem);
-//   listItem.appendChild(listItem);
-//   doctorsList.appendChild(listItem);
-// }
+function docInfoPage(selectedDoc) {}
 
 /*************************************** SEARCHING & FILTERING FUNCTIONS */
 
 //handle the search button
 function handleSearch() {
-  let inputBtn = document.querySelector(".dashboard__search button"); //Search button
-  //on click search button
-  inputBtn.addEventListener("click", (event) => {
-    if (inputBtn.classList.contains("active")) cleanSearch();
-    //if search is alredy done, clean it
-    else searchDoctors(); //else search for doctors
-    inputBtn.classList.toggle("active"); //change the button status
-  });
+  let submitSearch = document.querySelector(".dashboard__search button");
+  if (submitSearch.classList.contains("active")) cleanSearch();
+  //if search is alredy done, clean it
+  else searchDoctors(); //else search for doctors
+  submitSearch.classList.toggle("active"); //change the button status
 }
 
 //function for search doctors by name
@@ -234,7 +165,7 @@ function filterCategory(whatCategory) {
   }
 }
 
-/***************************************************** ANIMATIONS FUNCTIONS */
+/***************************************************** UTILITY FUNCTIONS */
 
 //Function for page transition animation
 function changePageAnimation(currentPage, finalPage, where) {
@@ -284,10 +215,29 @@ function changePageAnimation(currentPage, finalPage, where) {
 }
 
 //function for show the central menu
-function showMenu() {
-  let sideMenu = document.querySelector(".menu__center"); //Center menu hidden
+function showMenu(whatMenu) {
+  let menus = document.querySelectorAll(".menu--center"); //Center menu hidden
+  let menuElements = document.querySelectorAll(".menu--center li"); //Center menu elements*/
 
-  if (sideMenu.style.display == "none") sideMenu.style.display = "flex";
-  else if (sideMenu.style.display == "flex") sideMenu.style.display = "none";
-  else sideMenu.style.display = "none";
+  menus.forEach((menu) => {
+    if (menu.style.display == "none") menu.style.display = "flex";
+    else if (menu.style.display == "flex") menu.style.display = "none";
+    else menu.style.display = "none";
+  });
+
+  if (whatMenu === "dashedmenu") {
+    menuElements[0].innerHTML = "<a href='#categories'>Categories</a>"; //add link to Categories section
+    menuElements[1].innerHTML = "<a href='#doctors'>Top Doctors</a>"; //add link to Top Doctors section
+    menuElements[2].innerHTML = "";
+  } else if (whatMenu === "user") {
+    let username = localStorage.getItem("username");
+    menuElements[0].innerHTML = `Hi ${username}!`; //Take the username to show it
+    menuElements[1].innerHTML = "<a href='#'>Options</a>"; //Fake page link
+    menuElements[2].innerHTML =
+      "<a href='#' onclick='changePageAnimation(dashboardPage, loginPage, \"prew\");'>Exit</a>"; //Exit link send user to login page
+  } else if (whatMenu === "doctor") {
+    menuElements[3].innerHTML = "Add to Favourites"; //Fake page link
+    menuElements[4].innerHTML = "Vote Doctor"; //Fake page link
+    menuElements[5].innerHTML = "Report Doctor"; //Fake page link
+  }
 }

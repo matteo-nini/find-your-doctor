@@ -83,7 +83,12 @@
       <p class="homepage__description">
         Lorem ipsum dolor amet, consectetur adipiscing inet deli
       </p>
-      <button class="homepage__btn">Get Started</button>
+      <button
+        class="homepage__btn"
+        onclick="changePageAnimation(homePage,loginPage, 'next')"
+      >
+        Get Started
+      </button>
     </section>
 
     <section id="preloader">
@@ -92,7 +97,10 @@
 
     <!--login-->
     <section class="login">
-      <button class="login__go-back">
+      <button
+        class="login__go-back"
+        onclick="changePageAnimation(loginPage, homePage, 'prew')"
+      >
         <img src="assets/images/icons/go_back_ico.svg" alt="go-back" />
       </button>
       <h1>Login to your Account!</h1>
@@ -117,16 +125,16 @@
 
     <!--Find Your Doctor-->
     <section class="dashboard">
-      <div class="dashboard__menu">
-        <button class="dashboard__menu__ico" value="Menu">
+      <div class="menu --dash">
+        <button value="Menu" onclick="showMenu('dashedmenu')">
           <img src="assets/images/icons/menu_ico.svg" alt="menu" />
         </button>
-        <ul class="menu__center">
+        <ul class="menu--center">
           <li></li>
           <li></li>
           <li></li>
         </ul>
-        <button class="dashboard__menu__user" value="User">
+        <button class="--user" value="User" onclick="showMenu('user')">
           <img src="assets/images/avatars/user_avatar.svg" alt="user" />
         </button>
       </div>
@@ -138,7 +146,12 @@
           id="search"
           placeholder="Search for doctors"
         />
-        <button type="submit" value="Search"></button>
+        <button
+          class=""
+          type="submit"
+          value="Search"
+          onclick="handleSearch()"
+        ></button>
       </div>
 
       <a name="categories"></a>
@@ -204,6 +217,27 @@
             </div>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <!-- Selected Doctor -->
+    <section class="selected__doctor">
+      <div class="selected__doctor__bg">
+        <div class="menu --doc">
+          <button
+            onclick="changePageAnimation(doctorPage, dashboardPage, 'prew')"
+          >
+            <img src="assets/images/icons/go_back_ico.svg" alt="go-back" />
+          </button>
+          <ul class="menu--center">
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <button onclick="showMenu('doctor')">
+            <img src="assets/images/icons/dotted_menu_ico.svg" alt="menu" />
+          </button>
+        </div>
       </div>
     </section>
 
