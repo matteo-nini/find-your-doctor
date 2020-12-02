@@ -1,14 +1,9 @@
 @import url("fonts.css");
 @import url("reset.css");
+@import url("desktop.css");
 @import url("mobile/reusable_elements.css");
 @import url("mobile/home_page.css");
 @import url("mobile/preloader_page.css");
 @import url("mobile/login_page.css");
 @import url("mobile/dashboard_page.css");
 @import url("mobile/doctor_page.css");
-
-@media screen and (max-width: 1224px) {
-  .desktop {
-    display: none;
-  }
-}
