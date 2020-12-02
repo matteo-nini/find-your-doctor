@@ -98,6 +98,11 @@
   border-radius: 15px;
 }
 
+.categories__slider__item img,
+.categories__slider__item span {
+  transition: all 0.5s linear;
+}
+
 .categories__slider__item:nth-child(1) img {
   background: #4b7ffb;
 }

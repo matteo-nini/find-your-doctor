@@ -210,6 +210,11 @@ function cleanSearch() {
 }
 
 function filterCategory(whatCategory) {
+  let categoryImg = document.querySelectorAll(".categories__slider__item img");
+  let categoryDesc = document.querySelectorAll(
+    ".categories__slider__item span"
+  );
+
   let doctors = document.querySelectorAll(".list__item");
   switch (whatCategory) {
     case "dental":
@@ -217,18 +222,54 @@ function filterCategory(whatCategory) {
         if (doc.classList.contains("dental")) doc.style.display = "";
         else doc.style.display = "none";
       });
+      if (categoryDesc[0].textContent == "Dental Surgeon") {
+        categoryImg[0].style.background = "white";
+        categoryImg[0].src = "assets/images/icons/close_ico.svg";
+        categoryDesc[0].innerHTML = "Clear Search";
+      } else if (categoryDesc[0].textContent == "Clear Search") {
+        doctors.forEach((doc) => {
+          doc.style.display = "";
+        });
+        categoryImg[0].style.background = " #4b7ffb";
+        categoryImg[0].src = "assets/images/icons/dental_ico.svg";
+        categoryDesc[0].innerHTML = "Dental Surgeon";
+      }
       break;
     case "heart":
       doctors.forEach((doc) => {
         if (doc.classList.contains("heart")) doc.style.display = "";
         else doc.style.display = "none";
       });
+      if (categoryDesc[1].textContent == "Heart Surgeon") {
+        categoryImg[1].style.background = "white";
+        categoryImg[1].src = "assets/images/icons/close_ico.svg";
+        categoryDesc[1].innerHTML = "Clear Search";
+      } else if (categoryDesc[1].textContent == "Clear Search") {
+        doctors.forEach((doc) => {
+          doc.style.display = "";
+        });
+        categoryImg[1].style.background = "#ffb167";
+        categoryImg[1].src = "assets/images/icons/heart_ico.svg";
+        categoryDesc[1].innerHTML = "Heart Surgeon";
+      }
       break;
     case "eye":
       doctors.forEach((doc) => {
         if (doc.classList.contains("eye")) doc.style.display = "";
         else doc.style.display = "none";
       });
+      if (categoryDesc[2].textContent == "Eye Specialist") {
+        categoryImg[2].style.background = "white";
+        categoryImg[2].src = "assets/images/icons/close_ico.svg";
+        categoryDesc[2].innerHTML = "Clear Search";
+      } else if (categoryDesc[2].textContent == "Clear Search") {
+        doctors.forEach((doc) => {
+          doc.style.display = "";
+        });
+        categoryImg[2].style.background = "#f57e71";
+        categoryImg[2].src = "assets/images/icons/eye_ico.svg";
+        categoryDesc[2].innerHTML = "Eye Specialist";
+      }
       break;
   }
 }
