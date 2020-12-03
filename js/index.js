@@ -86,8 +86,38 @@ function loginValidate(event) {
   if (canLog == true) {
     localStorage.setItem("username", name.value);
     changePageAnimation(loginPage, dashboardPage, "next");
+    createCategoriesSlider();
     createDoctorsList();
   } else return false;
+}
+
+//Function for create categories slider
+function createCategoriesSlider() {
+  let categories = ["Dental Surgeon", "Heart Surgeon", "Eye Specialist"];
+  let categoriesIcons = [
+    "assets/images/icons/dental_ico.svg",
+    "assets/images/icons/heart_ico.svg",
+    "assets/images/icons/eye_ico.svg",
+  ];
+  let classes = ["dental", "heart", "eye"];
+  let startPoint = document.querySelector(".dahboard__categories__slider");
+
+  categories.forEach((cat, i) => {
+    let sliderItem = document.createElement("div");
+    sliderItem.className = "categories__slider__item";
+    sliderItem.classList.add(`${classes[i]}`);
+    sliderItem.onclick = function () {
+      filterCategory(`${classes[i]}`);
+    };
+    let SliderItemImg = document.createElement("img");
+    SliderItemImg.src = categoriesIcons[i];
+    SliderItemImg.alt = `${categories[i]}`;
+    let sliderItemSpan = document.createElement("span");
+    sliderItemSpan.innerHTML = `${cat}`;
+    startPoint.appendChild(sliderItem);
+    sliderItem.appendChild(SliderItemImg);
+    sliderItem.appendChild(sliderItemSpan);
+  });
 }
 
 //function for create doctor list
