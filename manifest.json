@@ -1,0 +1,15 @@
+{
+  "short_name": "FYD",
+  "name": "Find Your Doctor!",
+  "icons": [
+    {
+      "src": "assets/images/icons/app_icon.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
+  ],
+  "start_url": "/index.html",
+  "background_color": "#F9F9F9",
+  "display": "standalone",
+  "theme_color": "#F9F9F9"
+}
