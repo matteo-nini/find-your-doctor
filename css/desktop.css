@@ -40,14 +40,14 @@
   }
 
   .box {
-    width: 30%;
+    width: 40%;
     height: auto;
     background-color: white;
     border-radius: 20px;
     color: #4378f7;
     filter: drop-shadow(0 0 0.75rem #386ef2);
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     animation: slide-in 1s ease-in-out;
     z-index: 2;
   }
